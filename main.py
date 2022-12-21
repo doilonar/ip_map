@@ -1,7 +1,7 @@
-import geoip2.database 
-import folium 
+import geoip2.database #pip install geoip
+import folium #pip install folium
 import random
-import nmap 
+import nmap #pip install python-nmap
 
 
 def scan(ip):
@@ -26,7 +26,19 @@ def main():
     used_locations=[]
     used_locations.append(0)
     # read from db
-    reader = geoip2.database.Reader('GeoLite2-City.mmdb')
+    try:
+        reader = geoip2.database.Reader('GeoLite2-City.mmdb')
+    except:
+        #because of github who accept small files, I split the data base and now I will recreate the database
+        with open("GeoLite2-City.mmdb",'wb') as file:
+            for i in range(4):
+                with open("db"+str(i),'rb') as merge:
+                    for line in merge:
+                        file.write(line)
+                    merge.close()
+            file.close()
+        reader = geoip2.database.Reader('GeoLite2-City.mmdb')
+
     #create map
     map = folium.Map()
     #check if user want random ip or to read from file
