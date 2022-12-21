@@ -29,7 +29,7 @@ def main():
     try:
         reader = geoip2.database.Reader('GeoLite2-City.mmdb')
     except:
-        #because of github who accept small files, I split the data base and now I will recreate the database
+        #because github accept small files, I split the data base and now I will recreate the database
         with open("GeoLite2-City.mmdb",'wb') as file:
             for i in range(4):
                 with open("db"+str(i),'rb') as merge:
