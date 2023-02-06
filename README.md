@@ -6,5 +6,5 @@
  
 ## Packets you need
  ```
- pip3 - requiremens.txt
+ pip3 -r requiremens.txt
  ```
