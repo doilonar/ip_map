@@ -6,5 +6,5 @@
  
 ## Packets you need
  ```
- pip3 -r requiremens.txt
+ pip3 install -r requiremens.txt
  ```
