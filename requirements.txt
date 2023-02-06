@@ -1,3 +1,4 @@
 python-geoip
 folium
 python-nmap
+geoip2
