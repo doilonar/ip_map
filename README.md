@@ -8,3 +8,4 @@
  ```
  pip3 install -r requiremens.txt
  ```
+![ip_map_photo](https://github.com/doilonar/ip_map/assets/31927364/15e48657-99d7-44b5-a7a1-f62d0394fb4f)
