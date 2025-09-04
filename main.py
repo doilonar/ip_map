@@ -47,7 +47,11 @@ def main():
         file=input("name of file:")
         f= open(file,'r')
     #number of elements to put on map
-    number=int(input("how many?:"))
+    if state == 'r':
+        number=int(input("how many?:"))
+    else:
+        with open(file,'r') as fp:
+            number = len(fp.readlines())
     #check if user want to show only open ports ip
     nmap_state=input("show only with open ports(y/n):")
     for i in range(number):
@@ -65,6 +69,8 @@ def main():
             else:
                 
                 ip = f.readline()
+                if not ip:
+                    break
                 ip=ip.replace('\n',"")
 
                     
@@ -73,7 +79,7 @@ def main():
                 string=scan(ip)
             
                 #check if port is open
-                if string=="":
+                if string=="" and state=='r':
                     not_found=1
                     continue
             else:
